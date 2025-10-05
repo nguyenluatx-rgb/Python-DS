@@ -1,0 +1,79 @@
+🧩 LỘ TRÌNH HỌC 2: STACK & QUEUE
+🎯 Mục tiêu:
+Hiểu nguyên lý hoạt động của Stack (ngăn xếp) và Queue (hàng đợi)
+Biết các thao tác cơ bản và độ phức tạp thời gian
+Ứng dụng chúng vào thuật toán và xử lý thực tế
+
+🔹 1. STACK – NGĂN XẾP
+🧠 Khái niệm:
+La mot ADT (abstract data type)
+Dữ liệu được xử lý theo quy tắc LIFO (Last In, First Out) — vào sau ra trước
+Giống như chồng sách: quyển đặt lên sau cùng sẽ được lấy ra đầu tiên.
+📦 Thao tác chính:
+| Tên         | Mô tả                 | Python code       | Độ phức tạp |
+| ----------- | --------------------- | ----------------- | ----------- |
+| `push(x)`   | Thêm phần tử lên đỉnh | `stack.append(x)` | O(1)        |
+| `pop()`     | Lấy phần tử ở đỉnh ra | `stack.pop()`     | O(1)        |
+| `peek()`    | Xem phần tử ở đỉnh    | `stack[-1]`       | O(1)        |
+| `isEmpty()` | Kiểm tra rỗng         | `len(stack) == 0` | O(1)        |
+
+Ví dụ:
+stack = []
+stack.append(10)
+stack.append(20)
+stack.append(30)
+print(stack.pop())  # 30
+➡️ Kết quả: ra 30 trước vì nó được đưa vào sau cùng.
+
+💡 Ứng dụng thực tế:
+Hoàn tác (Undo/Redo) trong ứng dụng
+Kiểm tra ngoặc đúng/sai trong biểu thức ((a + b) * c)
+Đệ quy (Recursion) trong ngôn ngữ lập trình
+Duyệt cây hoặc đồ thị (DFS)
+
+🔹 2. QUEUE – HÀNG ĐỢI
+🧠 Khái niệm:
+Dữ liệu theo quy tắc FIFO (First In, First Out) — vào trước ra trước
+Giống như xếp hàng chờ mua vé: người vào đầu tiên sẽ được phục vụ trước.
+📦 Thao tác chính:
+| Tên          | Mô tả                      | Python code                      | Độ phức tạp    |
+| ------------ | -------------------------- | -------------------------------- | -------------- |
+| `enqueue(x)` | Thêm phần tử vào cuối hàng | `queue.append(x)`                | O(1)           |
+| `dequeue()`  | Lấy phần tử đầu hàng ra    | `queue.pop(0)` hoặc dùng `deque` | O(n) hoặc O(1) |
+| `peek()`     | Xem phần tử đầu hàng       | `queue[0]`                       | O(1)           |
+| `isEmpty()`  | Kiểm tra rỗng              | `len(queue) == 0`                | O(1)           |
+
+✅ Dùng collections.deque cho hiệu suất cao hơn:
+from collections import deque
+
+queue = deque()
+queue.append("A")   # enqueue
+queue.append("B")
+print(queue.popleft())  # dequeue → "A"
+
+💡 Ứng dụng thực tế:
+Xử lý yêu cầu theo thứ tự: hàng đợi in, server request
+Mô phỏng tiến trình CPU (CPU Scheduling)
+Tìm đường trong đồ thị (BFS)
+Luồng dữ liệu streaming
+
+🔹 3. So sánh Stack vs Queue
+| Tiêu chí       | **Stack (LIFO)**            | **Queue (FIFO)**                   |
+| -------------- | --------------------------- | ---------------------------------- |
+| Thứ tự xử lý   | Vào sau ra trước            | Vào trước ra trước                 |
+| Thao tác chính | push, pop                   | enqueue, dequeue                   |
+| Ứng dụng       | Undo, DFS, kiểm tra ngoặc   | BFS, hệ thống chờ, pipeline        |
+| Python hỗ trợ  | `list`, `collections.deque` | `collections.deque`, `queue.Queue` |
+
+🔹 4. Bài tập luyện cơ bản
+Viết chương trình đảo ngược chuỗi bằng Stack
+Kiểm tra ngoặc hợp lệ: "([{}])"
+Mô phỏng hàng đợi khách hàng (thêm, phục vụ, in danh sách)
+Viết chương trình chuyển số thập phân → nhị phân bằng Stack
+Mô phỏng quá trình xếp hàng và xử lý yêu cầu của server
+
+🔹 5. Kiến thức thêm (nếu muốn hiểu sâu hơn)
+Deque (Double-ended Queue): thêm/xóa ở cả hai đầu
+Circular Queue: dùng khi hàng đợi có kích thước giới hạn cố định
+Queue trong hệ điều hành: xử lý tiến trình, buffer, network queue
+Stack Overflow / Underflow: lỗi khi thao tác vượt giới hạn stack
