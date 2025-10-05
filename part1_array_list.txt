@@ -1,0 +1,43 @@
+🧩 LỘ TRÌNH HỌC 1: ARRAY & LIST
+🎯 Mục tiêu:
+Hiểu cách hoạt động của mảng (array) và danh sách (list)
+Biết cách thêm, xoá, duyệt, tìm kiếm, sắp xếp dữ liệu
+Làm quen với độ phức tạp thời gian (time complexity)
+
+🔹 1. Khái niệm cơ bản
+🧠 Array (Mảng)
+Là tập hợp các phần tử cùng kiểu dữ liệu, lưu liên tiếp nhau trong bộ nhớ.
+Truy cập bằng chỉ số (index), bắt đầu từ 0.
+
+Ví dụ trong Python:
+numbers = [10, 20, 30, 40, 50]
+print(numbers[0])  # 10
+
+🔍 Đặc điểm:
+Truy cập nhanh (O(1))
+Thêm/xóa phần tử chậm (O(n)), vì phải dời các phần tử khác.
+
+
+🧠 List (Danh sách động trong Python)
+Python dùng list động, hoạt động giống array nhưng linh hoạt hơn — có thể thay đổi kích thước.
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")   # thêm cuối
+fruits.remove("banana")   # xoá phần tử
+print(fruits)
+
+
+| Thao tác    | Python ví dụ                      | Độ phức tạp     |
+| ----------- | --------------------------------- | --------------- |
+| Truy cập    | `arr[i]`                          | O(1)            |
+| Thêm cuối   | `arr.append(x)`                   | O(1) trung bình |
+| Thêm giữa   | `arr.insert(i, x)`                | O(n)            |
+| Xóa phần tử | `arr.remove(x)` hoặc `del arr[i]` | O(n)            |
+| Tìm kiếm    | `x in arr` hoặc vòng lặp          | O(n)            |
+| Duyệt       | `for x in arr:`                   | O(n)            |
+
+🔹 3. Bài tập luyện cơ bản
+Tạo mảng gồm 10 số nguyên.
+Tính tổng, giá trị lớn nhất, nhỏ nhất.
+Thêm phần tử vào cuối, giữa, đầu danh sách.
+Viết hàm kiểm tra xem một giá trị có nằm trong danh sách hay không.
+Viết chương trình sắp xếp danh sách tăng dần.
