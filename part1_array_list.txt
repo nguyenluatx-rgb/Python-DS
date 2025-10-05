@@ -41,3 +41,50 @@ Tính tổng, giá trị lớn nhất, nhỏ nhất.
 Thêm phần tử vào cuối, giữa, đầu danh sách.
 Viết hàm kiểm tra xem một giá trị có nằm trong danh sách hay không.
 Viết chương trình sắp xếp danh sách tăng dần.
+
+🔹 4. Kiến thức thêm (nếu muốn hiểu sâu hơn)
+Dynamic Array: cách Python mở rộng dung lượng list khi đầy.
+Dynamic Array – Danh sách động
+💡 Ý tưởng:
+Một dynamic array (mảng động) là mảng có khả năng tự mở rộng khi đầy.
+Nó bắt đầu với một kích thước cố định, nhưng khi bạn thêm phần tử vượt quá giới hạn, nó sẽ:
+Tạo một mảng mới lớn hơn (thường gấp đôi kích thước)
+Sao chép toàn bộ dữ liệu cũ sang mảng mới
+Giải phóng bộ nhớ cũ
+| Bước | Dung lượng | Số phần tử | Hành động             |
+| ---- | ---------- | ---------- | --------------------- |
+| 1    | 4          | 0          | Khởi tạo              |
+| 2    | 4          | 1, 2, 3, 4 | Thêm đủ               |
+| 3    | 8          | 5          | Mở rộng (double size) |
+| 4    | 8          | 8          | Đầy lần nữa           |
+| 5    | 16         | 9          | Mở rộng tiếp          |
+
+
+
+Memory layout: cách các phần tử được lưu liên tiếp trong RAM.
+🧠 Array:
+Tất cả phần tử liên tiếp nhau trong RAM.
+Mỗi phần tử có cùng kích thước.
+Dễ truy cập vì chỉ cần biết “vị trí đầu” và “kích thước phần tử”.
+
+🧠 Python list:
+Thực ra không lưu trực tiếp giá trị mà lưu con trỏ (reference) đến các object.
+Nên các phần tử không nhất thiết liên tiếp nhau trong RAM, chỉ là danh sách con trỏ trỏ đến nơi lưu
+dữ liệu thật.
+
+
+Amortized analysis: giải thích vì sao append() vẫn trung bình là O(1).
+🧩 Vấn đề:
+Lệnh append() bình thường rất nhanh (O(1)),
+nhưng thỉnh thoảng rất chậm (O(n)) khi phải mở rộng mảng.
+
+lst = []
+for i in range(10000):
+    lst.append(i)
+
+9999 lần append đầu là O(1)
+Một vài lần hiếm hoi (khi mở rộng) là O(n)
+📊 Giải thích bằng “Amortized Analysis” (phân tích trung bình):
+Ta tính chi phí trung bình trên toàn bộ chuỗi thao tác.
+➡️ Dù đôi khi tốn O(n) (copy dữ liệu), nhưng vì mở rộng không diễn ra thường xuyên,
+nên trung bình mỗi lần append chỉ mất O(1).

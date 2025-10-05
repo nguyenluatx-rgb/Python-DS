@@ -31,6 +31,10 @@ print(arr)
 arr.pop()
 print(arr)
 
+# xoa phan tu o vi tri bat ki
+arr.pop()
+print(arr)
+
 # ham kiem tra xem phan tu co trong mang khong
 print(5 in arr)
 
